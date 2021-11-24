@@ -9,27 +9,25 @@ class Game:
 
         self.player1 = Human()
         self.computer = Computer()
-        self.board =  [
-            "-", "-", "-",
-            "-", "-", "-",
-            "-", "-", "-"
-            ]
-        self.play_game()
+        
+        self.game_intro()
 
  
-    def play_game(self):
+    def game_intro(self):
         # display initial board
-        self.display_board()
         self.display_rules()
+        self.player1.display_board()
+        self.play_game()
 
     def display_rules(self):
-        print("Please select a postion. Board reads left to right - Top to Bottom. Top Row: 1 - 3 -- Second Row: 4 - 6 -- Third Row: 7-9 ")
+        print("When selecting a position, the board reads Left to Right -- Top to Bottom. Top Row: 1 - 3 -- Second Row: 4 - 6 -- Third Row: 7-9 ")
 
-    def display_board(self):
-        print(self.board[0] , " | " + self.board[1], " | " + self.board[2])
-        print(self.board[3] , " | " + self.board[4], " | " + self.board[5])
-        print(self.board[6] , " | " + self.board[7], " | " + self.board[8])
 
+    def play_game(self):
+         print(f'{self.player1.name}, make your selection.')
+         self.player1.handle_turn()
+         print(f'{self.computer.name} chooses:')
+         self.computer.handle_turn(self.computer.board)
 
   
 
