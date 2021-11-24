@@ -1,13 +1,10 @@
- from human import Human
- from computer import Computer
 
 
 class Player():
 
     def __init__(self):
-        self.name = "" 
         self.score = 0
-        self.identifier = ""
+        
 
 
     def handle_turn(self):
