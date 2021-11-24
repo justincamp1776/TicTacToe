@@ -32,57 +32,86 @@ class Game:
             print(f'{self.computer.name} chooses:')
             self.computer.handle_AI_turn()
             self.check_winner()
-            
+          
         
 
     def check_winner(self):
+        # First Row
         if Player.board[0] =="X" and Player.board[1] =="X" and Player.board[2] =="X": 
             self.keep_playing = False
             self.end_game(self.player1.name)
-        if Player.board[0] =="O" and Player.board[1] =="O" and Player.board[2] =="O":
+        elif Player.board[0] =="O" and Player.board[1] =="O" and Player.board[2] =="O":
             self.keep_playing = False
             self.end_game(self.computer.name)
-        if Player.board[3] =="X" and Player.board[4] =="X" and Player.board[5] =="X": 
+        #  Second Row
+        elif Player.board[3] =="X" and Player.board[4] =="X" and Player.board[5] =="X": 
             self.keep_playing = False
             self.end_game(self.player1.name)
-        if Player.board[3] =="O" and Player.board[4] =="O" and Player.board[5] =="O":
+        elif Player.board[3] =="O" and Player.board[4] =="O" and Player.board[5] =="O":
             self.keep_playing = False
             self.end_game(self.computer.name)
-        if Player.board[6] =="X" and Player.board[7] =="X" and Player.board[8] =="X": 
+        #  Third Row
+        elif Player.board[6] =="X" and Player.board[7] =="X" and Player.board[8] =="X": 
             self.keep_playing = False
             self.end_game(self.player1.name)
-        if Player.board[6] =="O" and Player.board[7] =="O" and Player.board[8] =="O":
+        elif Player.board[6] =="O" and Player.board[7] =="O" and Player.board[8] =="O":
             self.keep_playing = False
             self.end_game(self.computer.name)
-        if Player.board[0] =="X" and Player.board[4] =="X" and Player.board[8] =="X": 
+        #  First Column
+        elif Player.board[0] =="X" and Player.board[3] =="X" and Player.board[6] =="X": 
             self.keep_playing = False
             self.end_game(self.player1.name)
-        if Player.board[0] =="O" and Player.board[4] =="O" and Player.board[8] =="O":
+        elif Player.board[0] =="O" and Player.board[3] =="O" and Player.board[6] =="O":
             self.keep_playing = False
             self.end_game(self.computer.name)
-        if Player.board[2] =="X" and Player.board[4] =="X" and Player.board[6] =="X": 
+        #  Second Column
+        elif Player.board[1] =="X" and Player.board[4] =="X" and Player.board[7] =="X": 
             self.keep_playing = False
             self.end_game(self.player1.name)
-        if Player.board[2] =="O" and Player.board[4] =="O" and Player.board[6] =="X":
+        elif Player.board[1] =="O" and Player.board[4] =="O" and Player.board[7] =="O":
+            self.keep_playing = False
+            self.end_game(self.computer.name)
+        #  Third Column
+        elif Player.board[2] =="X" and Player.board[5] =="X" and Player.board[8] =="X": 
+            self.keep_playing = False
+            self.end_game(self.player1.name)
+        elif Player.board[2] =="O" and Player.board[5] =="O" and Player.board[8] =="O":
+            self.keep_playing = False
+            self.end_game(self.computer.name)
+        #  Diagnol Top Left to Bottom Right
+        elif Player.board[0] =="X" and Player.board[4] =="X" and Player.board[8] =="X": 
+            self.keep_playing = False
+            self.end_game(self.player1.name)
+        elif Player.board[0] =="O" and Player.board[4] =="O" and Player.board[8] =="O":
+            self.keep_playing = False
+            self.end_game(self.computer.name)
+        # Diagnol Bottom Left to Top Right
+        elif Player.board[2] =="X" and Player.board[4] =="X" and Player.board[6] =="X": 
+            self.keep_playing = False
+            self.end_game(self.player1.name)
+        elif Player.board[2] =="O" and Player.board[4] =="O" and Player.board[6] =="X":
              self.keep_playing = False
              self.end_game(self.computer.name)
         
       
     def play_again(self):
-        
-        while self.is_valid:
-            play_again = input("Would you like to play again? Enter Yes or No")
-            if play_again.lower == "Yes".lower:
-                self.is_valid == True
+        valid = False
+        while not valid:
+            play_again = input("Would you like A Rematch? Enter Yes or No")
+            if play_again.lower() == "Yes".lower():
+                self.keep_playing = True
+                valid == True
                 Player.board = [
                                 "-", "-", "-",
                                 "-", "-", "-",
                                 "-", "-", "-"
                                 ]
-                self.play_game()
+                self.game_intro()
                 break
-            elif play_again.lower == "No".lower:
+            elif play_again.lower() == "No".lower():
                 print("Thanks for playing!")
+                self.keep_playing = False
+                break
 
         
 
