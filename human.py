@@ -2,7 +2,6 @@ from player import Player
 
 class Human(Player):
 
-    def __init__(self):
+    def __init__(self, name):
         self.name = ""
-        self.identifier = ""
-        super().__init__()
+        super().__init__(name)

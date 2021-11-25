@@ -1,4 +1,6 @@
 from player import Player
+from human import Human
+from computer import Computer
 
 
 
@@ -6,8 +8,8 @@ class Game:
 
     def __init__(self):
 
-        self.player1 = Player(input("Please Enter your name   "))
-        self.computer = Player("Computer")
+        self.player1 = Human(input("Please Enter your name   "))
+        self.computer = Computer("Computer")
         self.keep_playing = True
         self.game_intro()
 
@@ -29,7 +31,7 @@ class Game:
             self.player1.handle_turn()
             self.check_winner()
             print(f'{self.computer.name} chooses:')
-            self.computer.handle_AI_turn()
+            self.computer.handle_turn()
             self.check_winner()
           
     def check_winner(self):
