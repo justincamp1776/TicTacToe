@@ -29,11 +29,3 @@ class Player():
             self.display_board()
         
 
-    # def handle_AI_turn(self):
-    #     selection = random.randint(0,9)
-    #     if Player.board[selection-1] != "-":
-    #         self.handle_AI_turn()
-    #     else:
-    #          Player.board[selection-1] = "O"
-    #          self.display_board()
-        
