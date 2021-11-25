@@ -9,9 +9,8 @@ class Player():
             ]
 
 
-    def __init__(self, name, identifier):
+    def __init__(self, name):
         self.name = name
-        self.identifier = identifier
         self.score = 0
         
         
@@ -22,7 +21,7 @@ class Player():
 
     def handle_turn(self):
         selection = input(" Grid Instructions: Top Row: 1 - 3 -- Second Row: 4 - 6 -- Third Row: 7-9  Choose an EMPTY position from 1-9   ")
-        if Player.board[int(selection) -1] != "-":
+        if Player.board[int(selection)- 1] != "-":
             print("That position is already taken. Please select and empty postion")
             self.handle_turn()
         else:
